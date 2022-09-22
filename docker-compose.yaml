@@ -1,0 +1,45 @@
+version: "3.9"
+services:
+  config-server:
+    image: smartcommunitylab/config-server:8-alpine
+    ports:
+      - 9999:9999
+    networks:
+      af: 
+        aliases:
+          - config-server
+          - af-config-server
+  eureka:
+    image: smartcommunitylab/af-eureka:8-alpine
+    ports: 
+      - 8761:8461
+    networks:
+      af: 
+        aliases:
+          - eureka
+  mongo:git 
+    image: mongo:4
+    ports: 
+      - 27017:27017
+    volumes:
+      - "mongodbdata:/data/db"
+    networks:
+      af: 
+        aliases:
+          - mongo
+  catalogue:
+    image: smartcommunitylab/af-catalogue:11-alpine
+    environment:
+      - MONGO_HOST=mongo
+    ports:
+      - 7777:7777
+    networks:
+      af: 
+        aliases:
+          - catalogue
+
+networks:
+  af: 
+
+volumes:
+  mongodbdata:
