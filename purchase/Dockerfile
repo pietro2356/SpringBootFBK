@@ -21,4 +21,6 @@ COPY --from=build --chown=purchase:purchase /tmp/target/purchase-0.0.1-SNAPSHOT.
 
 USER purchase
 
+EXPOSE 7788
+
 ENTRYPOINT [ "java", "-jar", "/tmp/purchase-0.0.1-SNAPSHOT.jar" ]
