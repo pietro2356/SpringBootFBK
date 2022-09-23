@@ -1,4 +1,4 @@
-FROM maven:3-eclipse-temurin-8-alpine AS build
+FROM maven:3-eclipse-temurin-11-alpine AS build
 
 COPY src/ /tmp/src/
 COPY pom.xml /tmp/
@@ -11,7 +11,7 @@ WORKDIR /tmp
 RUN --mount=type=bind,target=/root/.m2,source=/root/.m2,from=smartcommunitylab/config-server:8-alpine-cache mvn clean package -DskipTests
 
 #ENTRYPOINT [ "/bin/bash" ]
-FROM amazoncorretto:8-alpine AS run
+FROM amazoncorretto:11-alpine AS run
 
 RUN addgroup -g 4000 config
 RUN adduser -u 4000 -G config -h /home/config -D config
