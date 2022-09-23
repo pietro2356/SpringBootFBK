@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 import com.example.catalogue.domain.Product;
 
 
-@EnableMongoRepositories(basePackages = "com.example.catalogue.configuration")
+// @EnableMongoRepositories(basePackages = "com.example.catalogue.configuration")
 public interface ProductRepository extends MongoRepository<Product, String> {
 
 	List<Product> findByCategory(String category);
