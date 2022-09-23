@@ -13,12 +13,12 @@ public class MongoConfig extends AbstractMongoClientConfiguration{
 
     @Override
     protected String getDatabaseName() {
-        return "test";
+        return "fbk";
     }
  
     @Override
     public MongoClient mongoClient() {
-        ConnectionString connectionString = new ConnectionString("mongodb://mongo:27017/test");
+        ConnectionString connectionString = new ConnectionString("mongodb://mongo:27017/fbk");
         MongoClientSettings mongoClientSettings = MongoClientSettings.builder()
             .applyConnectionString(connectionString)
             .build();
