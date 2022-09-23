@@ -9,7 +9,7 @@ ENV TYPE prod
 
 WORKDIR /tmp
 
-RUN --mount=type=bind,target=/root/.m2,source=/root/.m2,from=smartcommunitylab/af-eureka:8-alpine-cache mvn clean package -DskipTests
+RUN mvn clean package -DskipTests
 
 FROM amazoncorretto:8-alpine AS run
 
