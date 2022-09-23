@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  config-server:
+    image: uf13/config-server:11-alpine
+    build:
+      context: ./confserver
+    ports:
+      - 9999:9999
+    networks:
+      af: 
+        aliases:
+          - config-server
+          - af-config-server

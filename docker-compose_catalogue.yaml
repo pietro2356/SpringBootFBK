@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  catalogue:
+    image: uf13/catalogue:11-alpine
+    build:
+      context: ./catalogue
+    depends_on:
+      - config-server
+    environment:
+      - MONGO_HOST=mongo
+    ports:
+      - 7777:7777
+    networks:
+      af: 
+        aliases:
+          - catalogue
