@@ -1,0 +1,42 @@
+version: '20.10.2'
+name: 'uf13-prgcl3'
+volumes:
+  Configurations:
+networks:
+  dockernet:
+services:
+  database:
+    image: mongo:latest
+    restart: on-failure
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./docker-volumes/MongoData/dbdata:/data/db
+      - ./docker-volumes/MongoData/dbconfig:/data/configdb
+    networks:
+      - dockernet
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 200M
+        reservations:
+          memory: 20M
+  configserver:
+   image: configserver:11-alpine
+   build:
+    dockerfile: ./confserver/confserver.Dockerfile
+   restart: on-failure
+   deploy:
+     resources:
+       limits:
+         memory: 200M
+       reservations:
+         memory: 20M
+   volumes:
+     - ./docker-volumes/Configurations:/configurations
+   networks:
+     - dockernet
