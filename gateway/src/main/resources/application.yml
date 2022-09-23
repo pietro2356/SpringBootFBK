@@ -1,18 +1,27 @@
 spring:
- application:
-  name: gateway
- cloud:
-  gateway:
-   routes:
-   - id: catalogueModule
-     uri: lb://CATALOGUE
-     predicates:
-     - Path=/catalogue/**
-     filters:
-     - StripPrefix=1
-   - id: purchaseModule
-     uri: lb://PURCHASE
-     predicates:
-     - Path=/purchase/**
-     filters:
-     - StripPrefix=1
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: catalogueModule
+          uri: lb://CATALOGUE
+          predicates:
+          - Path=/catalogue/**
+          filters:
+          - StripPrefix=1
+
+        - id: purchaseModule
+          uri: lb://PURCHASE
+          predicates:
+          - Path=/purchase/**
+          filters:
+          - StripPrefix=1
+
+        - id: eurekaModule
+          uri: lb://EUREKA
+          predicates:
+          - Path=/eureka/**
+          filters:
+          - StripPrefix=1
+     

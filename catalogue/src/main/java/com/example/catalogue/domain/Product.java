@@ -11,7 +11,7 @@ public class Product {
 	private Double price;
 	private Integer availability;
 	private String category;
-	
+
 	
 	public String getId() {
 		return id;
