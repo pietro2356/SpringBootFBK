@@ -10,3 +10,5 @@ services:
       af: 
         aliases:
           - eureka
+networks:
+  af: 

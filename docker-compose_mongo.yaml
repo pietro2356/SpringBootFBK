@@ -10,3 +10,7 @@ services:
       af: 
         aliases:
           - mongo
+networks:
+  af: 
+volumes:
+  mongodbdata:

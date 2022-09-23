@@ -11,3 +11,5 @@ services:
         aliases:
           - config-server
           - af-config-server
+networks:
+  af: 
