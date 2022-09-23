@@ -20,4 +20,6 @@ COPY --from=build --chown=catalogue:catalogue /tmp/target/catalogue-0.0.1-SNAPSH
 
 USER catalogue
 
+EXPOSE 7777:7777
+
 ENTRYPOINT [ "java", "-jar", "/tmp/catalogue-0.0.1-SNAPSHOT.jar" ]

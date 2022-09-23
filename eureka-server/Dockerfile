@@ -20,4 +20,6 @@ COPY --from=build --chown=eureka:eureka /tmp/target/eureka-server-0.0.1-SNAPSHOT
 
 USER eureka
 
+EXPOSE 8761:8761
+
 ENTRYPOINT [ "java", "-jar", "/tmp/eureka-server-0.0.1-SNAPSHOT.jar" ]

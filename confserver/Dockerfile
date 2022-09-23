@@ -20,4 +20,6 @@ COPY --from=build --chown=config:config /tmp/target/config-server-0.0.1-SNAPSHOT
 EXPOSE 9999
 USER config
 
+EXPOSE 9999:9999
+
 ENTRYPOINT [ "java", "-jar", "/tmp/config-server-0.0.1-SNAPSHOT.jar" ]

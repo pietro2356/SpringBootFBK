@@ -16,7 +16,7 @@ services:
     build:
       context: ./eureka-server
     ports: 
-      - 8761:8461
+      - 8761:8761
     networks:
       af: 
         aliases:
