@@ -7,14 +7,14 @@ spring:
         - id: catalogueModule
           uri: lb://CATALOGUE
           predicates:
-          - Path=/catalogue/**
+          - Path=/api/catalogue/**
           filters:
           - StripPrefix=1
 
         - id: purchaseModule
           uri: lb://PURCHASE
           predicates:
-          - Path=/purchase/**
+          - Path=/api/purchase/**
           filters:
           - StripPrefix=1
 
