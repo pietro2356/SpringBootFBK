@@ -62,6 +62,20 @@ services:
       - 7788:7788
     networks:
       af:
+
+  # GATEWAY
+  gateway:
+    image: uf13/gateway:11-alpine
+    build:
+      context: ./gateway
+    depends_on:
+      - config-server
+      - eureka
+    restart: on-failure
+    ports:
+      - 8080:8080
+    networks:
+      af:
 networks:
   af: 
 
