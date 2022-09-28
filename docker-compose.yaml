@@ -6,8 +6,8 @@ services:
     image: uf13/config-server:8-alpine
     build:
       context: ./confserver
-    # ports:
-    #   - 9999:9999
+    ports:
+      - 9999:9999
     networks:
       af:
 
@@ -16,8 +16,8 @@ services:
     image: uf13/eureka:8-alpine
     build:
       context: ./eureka-server
-    # ports: 
-    #   - 8761:8761
+    ports: 
+      - 8761:8761
     networks:
       af:
 
@@ -42,8 +42,8 @@ services:
     restart: on-failure
     environment:
       - MONGO_HOST=mongo
-    # ports:
-    #   - 7777:7777
+    ports:
+      - 7777:7777
     networks:
       af:
 
@@ -58,8 +58,8 @@ services:
     restart: on-failure
     environment:
       - MONGO_HOST=mongo
-    # ports:
-    #   - 7788:7788
+    ports:
+      - 7788:7788
     networks:
       af:
 

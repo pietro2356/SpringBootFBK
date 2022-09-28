@@ -7,14 +7,14 @@ spring:
         - id: catalogueModule
           uri: http://catalogue:7777/
           predicates:
-          - Path=/api/catalogue/**
+          - Path=/api/**
           filters:
           - StripPrefix=1
 
         - id: purchaseModule
           uri: http://purchase:7788
           predicates:
-          - Path=/api/purchase/**
+          - Path=/api/**
           filters:
           - StripPrefix=1
 
