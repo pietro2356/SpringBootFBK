@@ -85,15 +85,6 @@ services:
       - 9411:9411
     networks:
       af:
-
-  # ZIPKIN
-  dozzle:
-    image: amir20/dozzle:latest
-    restart: on-failure
-    ports:
-      - 8888:8080
-    networks:
-      af:
 networks:
   af: 
 
