@@ -117,6 +117,8 @@ services:
       - 9090:9090
     volumes:
       - ./volumes/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      af:
 
 
 
