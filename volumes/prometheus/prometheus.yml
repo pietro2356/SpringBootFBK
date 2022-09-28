@@ -7,7 +7,7 @@ scrape_configs:
   - job_name: 'catalogue'
     metrics_path: '/actuator/prometheus'
     static_configs:
-      - targets: ['catalogue:8080']
+      - targets: ['catalogue:7777']
         labels: 
           application: 'Catalogue Application'
   # GATEWAY
@@ -21,6 +21,6 @@ scrape_configs:
   - job_name: 'purchase'
     metrics_path: '/actuator/prometheus'
     static_configs:
-      - targets: ['purchase:8080']
+      - targets: ['purchase:7788']
         labels: 
           application: 'Purchase Application'
