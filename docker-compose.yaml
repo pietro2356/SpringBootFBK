@@ -76,6 +76,15 @@ services:
       - 8080:8080
     networks:
       af:
+
+  # ZIPKIN
+  gateway:
+    image: openzipkin/zipkin
+    restart: on-failure
+    ports:
+      - 9411:9411
+    networks:
+      af:
 networks:
   af: 
 
