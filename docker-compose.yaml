@@ -80,6 +80,7 @@ services:
   # ZIPKIN
   zipkin:
     image: openzipkin/zipkin
+    container_name: zipkin
     restart: on-failure
     ports:
       - 9411:9411
@@ -89,11 +90,39 @@ services:
   # GRAFANA
   grafana:
     image: grafana/grafana-oss:9.1.0
+    container_name: grafana
     restart: on-failure
+    depends_on:
+      - zipkin
+      - prometheus
     ports:
       - 3000:3000
+    links:
+      - prometheus:prometheus
+    volumes:
+      - ./grafana:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
     networks:
       af:
+
+  # PROMETHEUS
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    restart: on-failure
+    depends_on:
+      - catalogue
+      - gateway
+      - purchase
+    ports:
+      - 9090:9090
+    volumes:
+      - /path/to/prometheus.yml:/etc/prometheus/prometheus.yml
+
+
+
 networks:
   af: 
 

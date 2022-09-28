@@ -1,0 +1,26 @@
+global:
+  scrape_interval: 10s
+  evaluation_interval: 10s
+
+scrape_configs: 
+  # CATALOGUE
+  - job_name: 'catalogue'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['catalogue:8080']
+        labels: 
+          application: 'Catalogue Application'
+  # GATEWAY
+  - job_name: 'gateway'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['gateway:8080']
+        labels: 
+          application: 'Gateway Application'
+  # PURCHASE
+  - job_name: 'purchase'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['purchase:8080']
+        labels: 
+          application: 'Purchase Application'
