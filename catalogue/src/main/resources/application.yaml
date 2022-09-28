@@ -3,3 +3,6 @@ spring:
         name: catalogue
 server: 
     port: 7777
+
+zipkin:
+    base-url: http://127.0.0.1:9411
