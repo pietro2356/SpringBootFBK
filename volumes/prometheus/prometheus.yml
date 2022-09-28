@@ -3,24 +3,31 @@ global:
   evaluation_interval: 10s
 
 scrape_configs: 
+  # PROMETHEUS
+  - job_name: 'prometheus'
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+    static_configs:
+    - targets: ['100.107.94.101:9090']
+
   # CATALOGUE
   - job_name: 'catalogue'
     metrics_path: '/actuator/prometheus'
     static_configs:
-      - targets: ['catalogue:7777']
+      - targets: ['100.107.94.101:7777']
         labels: 
           application: 'Catalogue Application'
   # GATEWAY
   - job_name: 'gateway'
     metrics_path: '/actuator/prometheus'
     static_configs:
-      - targets: ['gateway:8080']
+      - targets: ['100.107.94.101:8080']
         labels: 
           application: 'Gateway Application'
   # PURCHASE
   - job_name: 'purchase'
     metrics_path: '/actuator/prometheus'
     static_configs:
-      - targets: ['purchase:7788']
+      - targets: ['100.107.94.101:7788']
         labels: 
           application: 'Purchase Application'
