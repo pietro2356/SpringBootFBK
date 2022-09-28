@@ -80,7 +80,6 @@ services:
   # ZIPKIN
   zipkin:
     image: openzipkin/zipkin
-    container_name: zipkin
     restart: on-failure
     ports:
       - 9411:9411
@@ -90,7 +89,6 @@ services:
   # GRAFANA
   grafana:
     image: grafana/grafana-oss:9.1.0
-    container_name: grafana
     restart: on-failure
     depends_on:
       - zipkin
@@ -110,7 +108,6 @@ services:
   # PROMETHEUS
   prometheus:
     image: prom/prometheus
-    container_name: prometheus
     restart: on-failure
     depends_on:
       - catalogue
