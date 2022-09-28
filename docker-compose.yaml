@@ -92,8 +92,6 @@ services:
     restart: on-failure
     ports:
       - 8888:8080
-    volume: 
-      /var/run/docker.sock:/var/run/docker.sock
     networks:
       af:
 networks:
