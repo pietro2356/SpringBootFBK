@@ -97,8 +97,8 @@ services:
       - prometheus
     ports:
       - 3000:3000
-    # links:
-    #   - prometheus:prometheus
+    links:
+      - prometheus:prometheus
     # volumes:
     #   - ./volumes/grafana:/var/lib/grafana
     environment:
