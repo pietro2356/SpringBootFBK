@@ -78,11 +78,22 @@ services:
       af:
 
   # ZIPKIN
-  gateway:
+  zipkin:
     image: openzipkin/zipkin
     restart: on-failure
     ports:
       - 9411:9411
+    networks:
+      af:
+
+  # ZIPKIN
+  dozzle:
+    image: amir20/dozzle:latest
+    restart: on-failure
+    ports:
+      - 8888:8080
+    volume: 
+      /var/run/docker.sock:/var/run/docker.sock
     networks:
       af:
 networks:
