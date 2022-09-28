@@ -4,24 +4,21 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: catalogueModule
-          uri: http://catalogue:7777/
+        - id: catalogue
+          uri: lb://CATALOGUE
           predicates:
-          - Path=/api/**
+          - Path=/catalogue/**
           filters:
           - StripPrefix=1
 
-        - id: purchaseModule
-          uri: http://purchase:7788
+        - id: purchase
+          uri: lb://PURCHASE
           predicates:
-          - Path=/api/**
+          - Path=/purchase/**
           filters:
           - StripPrefix=1
 
-        - id: eurekaModule
-          uri: https://eureka:8080/
-          predicates:
-          - Path=/eureka/**
-          filters:
-          - StripPrefix=1
-     
+eureka:
+ client:
+  serviceUrl:
+   defaultZone: http://eureka:8761/eureka/
