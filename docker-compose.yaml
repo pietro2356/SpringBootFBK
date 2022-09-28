@@ -119,7 +119,7 @@ services:
     ports:
       - 9090:9090
     volumes:
-      - /path/to/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
 
 
 
