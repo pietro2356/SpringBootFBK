@@ -41,9 +41,9 @@ public class ProductController {
 	public Product createProduct(@RequestBody Product product) {
 		return service.createProduct(product);
 	}
+
 	@PutMapping("/products/{id}/availability/{diff}")
 	public Product changeAvailability(@PathVariable String id, @PathVariable Integer diff) {
 		return service.updateAvailability(id, diff);
 	}
-	
 }

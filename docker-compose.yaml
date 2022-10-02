@@ -97,8 +97,8 @@ services:
       - 3000:3000
     links:
       - prometheus:prometheus
-    # volumes:
-    #   - ./volumes/grafana:/var/lib/grafana
+    volumes:
+      - grafana_data:/var/lib/grafana
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin
@@ -120,6 +120,15 @@ services:
     networks:
       af:
 
+  # DOZZLE
+  dozzle:
+    container_name: dozzle
+    image: amir20/dozzle:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 8888:8080
+
 
 
 networks:
@@ -127,3 +136,5 @@ networks:
 
 volumes:
   mongodbdata:
+  grafana_data:
+
