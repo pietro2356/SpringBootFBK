@@ -1,0 +1,6 @@
+config:
+  target: "http://gateway:8080/catalogue/api/products/"
+  phases:
+    - duration: 300
+      arrivalRate: 10
+      maxVusers: 50
